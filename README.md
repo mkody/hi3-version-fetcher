@@ -8,7 +8,7 @@
 
 ## Setup
 ```bash
-pip3 install pytz
+pip3 install pytz semver requests
 cp hi3s.json.dist hi3s.json
 $EDITOR hi3s.json
 ```
