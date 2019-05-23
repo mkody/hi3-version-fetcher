@@ -34,7 +34,12 @@ for key, value in od.items():
     # Get dispatch URL
     params = '?version={}_{}_android&t={}'.format(value['version'], key, ts)
     r = requests.get('http://{}/query_dispatch{}'.format(value['host'], params))
-    j = r.json()
+    try:
+        j = r.json()
+    except:
+        print('Error with dispatch ' + key)
+        continue
+
     dispatch = j['region_list'][0]['dispatch_url']
 
     # Save our current version
@@ -62,13 +67,20 @@ for key, value in od.items():
             stay = True
 
         params = '?version={}_{}_android&t={}'.format(value['version'], key, ts)
-
         r = requests.get(dispatch + params)
-        js = r.json()
+
+        try:
+            js = r.json()
+        except:
+            print('Error when parsing json for ' + key + ' v.' + value['version'])
+            continue
 
         if 'retcode' not in js or not (js['retcode'] == 4 or js['retcode'] == 1):
             if key != 'gf':  # We can't check CN yet
-                value['build'] = js['ext']['ex_res_filename'][5:8]
+                try:
+                    value['build'] = js['ext']['ex_res_filename'][5:8]
+                except:
+                    continue
             elif not stay:  # So if CN changes, put ???
                 value['build'] = '???'
 
@@ -76,6 +88,7 @@ for key, value in od.items():
                 value['date'] = datetime.now().strftime('%Y-%m-%d')
 
             print('{} - {}({})\n'.format(key, value['version'], value['build']))
+            cont = False
 
     # Make our table row
     table += '| [{}][{}] | {}({}) | {} |\n'.format(
