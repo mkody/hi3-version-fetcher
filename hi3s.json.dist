@@ -2,7 +2,7 @@
     "gf": {
         "build": "???",
         "date": "",
-        "host": "106.14.51.73",
+        "host": "http://106.14.51.73",
         "name": "China (CN) ",
         "order": 1,
         "version": "3.1.0"
@@ -10,7 +10,7 @@
     "tw": {
         "build": "???",
         "date": "",
-        "host": "asiaglobal1.bh3.com",
+        "host": "http://asiaglobal1.bh3.com",
         "name": "Taiwan (TW)",
         "order": 2,
         "version": "3.1.1"
@@ -18,7 +18,7 @@
     "jp": {
         "build": "???",
         "date": "",
-        "host": "jp01.houkai3rd.com",
+        "host": "http://jp01.houkai3rd.com",
         "name": "Japan (JP) ",
         "order": 3,
         "version": "3.0.0"
@@ -26,7 +26,7 @@
     "kr": {
         "build": "???",
         "date": "",
-        "host": "global01.kr.honkaiimpact3.com",
+        "host": "http://global01.kr.honkaiimpact3.com",
         "name": "Korea (KR) ",
         "order": 4,
         "version": "3.0.0"
@@ -34,7 +34,7 @@
     "os": {
         "build": "???",
         "date": "",
-        "host": "overseas01.honkaiimpact3.com",
+        "host": "http://overseas01.honkaiimpact3.com",
         "name": "Asia (SEA) ",
         "order": 5,
         "version": "3.0.0"
@@ -42,7 +42,7 @@
     "global": {
         "build": "???",
         "date": "",
-        "host": "eur01.global3rd.com:15000",
+        "host": "http://eur01.global3rd.com:15000",
         "name": "Global ",
         "order": 6,
         "version": "3.0.0"

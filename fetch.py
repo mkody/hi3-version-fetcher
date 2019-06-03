@@ -33,7 +33,7 @@ for key, value in od.items():
 
     # Get dispatch URL
     params = '?version={}_{}_android&t={}'.format(value['version'], key, ts)
-    r = requests.get('http://{}/query_dispatch{}'.format(value['host'], params))
+    r = requests.get('{}/query_dispatch{}'.format(value['host'], params))
     try:
         j = r.json()
     except:
@@ -50,19 +50,19 @@ for key, value in od.items():
         # upgrade version
         if s == 0:
             value['version'] = semver.bump_patch(v)
-            # print('Testing ' + key + ' on ' + value['version'])
+            print('Testing ' + key + ' on ' + value['version'])
             s = 1
         elif s == 1:
             value['version'] = semver.bump_minor(v)
-            # print('Testing ' + key + ' on ' + value['version'])
+            print('Testing ' + key + ' on ' + value['version'])
             s = 2
         elif s == 2:
             value['version'] = semver.bump_major(v)
-            # print('Testing ' + key + ' on ' + value['version'])
+            print('Testing ' + key + ' on ' + value['version'])
             s = 3
         else:
             value['version'] = v
-            # print(key + ' still on ' + value['version'])
+            print(key + ' still on ' + value['version'])
             cont = False
             stay = True
 
